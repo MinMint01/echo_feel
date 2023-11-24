@@ -57,7 +57,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
         children: [
           // Background Image
           Image.asset(
-            'lib\\assets\\welcome_page.png', // replace image asset
+            'lib\\assets\\welcome_page.png',
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
@@ -107,7 +107,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
 // home_page.dart
 
-// Import the newly created AudioPage
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
