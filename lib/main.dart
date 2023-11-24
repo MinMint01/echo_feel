@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'audio_page.dart';
+import 'text_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -123,7 +124,7 @@ class HomePage extends StatelessWidget {
           children: [
             OptionButton(
               label: 'AUDIO',
-              color: const Color(0xFF1DDFF3),
+              color: const Color(0xFF79E0EE),
               onPressed: () {
                 // Navigate to the AudioPage when the "AUDIO" button is pressed
                 Navigator.push(
@@ -135,7 +136,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 20),
             OptionButton(
               label: 'IMAGE',
-              color: const Color(0xFF95F8AE),
+              color: const Color(0xFF98EECC),
               onPressed: () {
                 if (kDebugMode) {
                   print('Image option selected');
@@ -145,11 +146,13 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 20),
             OptionButton(
               label: 'TEXT',
-              color: const Color(0xFFF2FA8E),
+              color: const Color(0xFFD0F5BE),
               onPressed: () {
-                if (kDebugMode) {
-                  print('Text option selected');
-                }
+                // Navigate to the TextPage when the "TEXT" button is pressed
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TextPage()),
+                );
               },
             ),
           ],
