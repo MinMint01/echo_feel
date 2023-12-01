@@ -1,18 +1,34 @@
-// audio_page.dart
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'listening_page.dart';
+// ignore: depend_on_referenced_packages
+import 'package:image_picker/image_picker.dart';
 
-class AudioPage extends StatelessWidget {
-  const AudioPage({super.key});
+class ImagePage extends StatelessWidget {
+  const ImagePage({super.key});
+
+  Future<void> _captureImage() async {
+    try {
+      final XFile? image =
+          await ImagePicker().pickImage(source: ImageSource.camera);
+
+      if (image == null) return; // User canceled the image capture
+
+      // Handle the captured image, for example, you can display it or upload it.
+      if (kDebugMode) {
+        print('Image captured: ${image.path}');
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error capturing image: $e');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Speech to Braille'),
         // Home button
-        automaticallyImplyLeading: true,
         leading: IconButton(
           icon: const Icon(Icons.home),
           onPressed: () {
@@ -26,23 +42,17 @@ class AudioPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Microphone icon button
+            // Camera capture icon button
             IconButton(
-              icon: const Icon(Icons.mic),
+              icon: const Icon(Icons.camera),
               iconSize: 72.0,
               color: Colors.white,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ListeningPage()),
-                );
-              },
+              onPressed: _captureImage,
             ),
             const SizedBox(height: 20),
-            // Text "TAP TO SPEAK"
+            // Text "TAP TO CAPTURE"
             const Text(
-              'TAP TO SPEAK',
+              'TAP TO CAPTURE',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,

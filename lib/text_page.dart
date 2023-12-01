@@ -17,6 +17,15 @@ class _TextPageState extends State<TextPage> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text('Text to Braille'),
+        // Home button
+        automaticallyImplyLeading: true,
+        leading: IconButton(
+          icon: const Icon(Icons.home),
+          onPressed: () {
+            // Navigate back to the home page when the home button is pressed
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Center(
         child: Column(
@@ -28,7 +37,7 @@ class _TextPageState extends State<TextPage> {
               },
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-                hintText: 'Enter text',
+                hintText: 'Enter your text here...',
                 hintStyle: TextStyle(color: Colors.grey),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
