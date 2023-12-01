@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ListeningPage extends StatefulWidget {
-  const ListeningPage({super.key});
+  const ListeningPage({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _ListeningPageState createState() => _ListeningPageState();
 }
 
@@ -31,6 +30,16 @@ class _ListeningPageState extends State<ListeningPage>
     _controller.dispose();
     _audioController.dispose();
     super.dispose();
+  }
+
+  void _stopAudio() {
+    // Add any necessary logic to stop the audio playback
+    // For example, you can use a package like audioplayers
+    // and call stop method on the player instance.
+    // audioPlayer.stop();
+
+    // Navigate to the home page
+    Navigator.of(context).pop();
   }
 
   @override
@@ -84,6 +93,12 @@ class _ListeningPageState extends State<ListeningPage>
                 ),
               ),
             ),
+            const SizedBox(height: 20),
+            // STOP button
+            ElevatedButton(
+              onPressed: _stopAudio,
+              child: const Text('STOP'),
+            ),
           ],
         ),
       ),
@@ -94,7 +109,7 @@ class _ListeningPageState extends State<ListeningPage>
 class Dot extends StatelessWidget {
   final double animationValue;
 
-  const Dot({super.key, required this.animationValue});
+  const Dot({Key? key, required this.animationValue}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
