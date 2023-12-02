@@ -87,17 +87,15 @@ class _ListeningPageState extends State<ListeningPage>
               child: TextField(
                 controller: _audioController,
                 style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                  hintText: 'Speaking Audio...',
-                  hintStyle: TextStyle(color: Colors.grey),
-                  border: InputBorder.none,
-                ),
               ),
             ),
             const SizedBox(height: 20),
             // STOP button
             ElevatedButton(
               onPressed: _stopAudio,
+              style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.black,
+                  backgroundColor: const Color(0xFF98EECC)),
               child: const Text('STOP'),
             ),
           ],

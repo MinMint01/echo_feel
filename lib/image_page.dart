@@ -39,6 +39,7 @@ class ImagePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // Home button
+        backgroundColor: Colors.black,
         leading: IconButton(
           icon: const Icon(Icons.home),
           onPressed: () {

@@ -12,7 +12,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.black,
       ),
       backgroundColor: Colors.black,
       body: Center(

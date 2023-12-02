@@ -10,7 +10,7 @@ class AudioPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Speech to Braille'),
+        backgroundColor: Colors.black,
         // Home button
         automaticallyImplyLeading: true,
         leading: IconButton(

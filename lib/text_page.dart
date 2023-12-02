@@ -16,7 +16,7 @@ class _TextPageState extends State<TextPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Text to Braille'),
+        backgroundColor: Colors.black,
         // Home button
         automaticallyImplyLeading: true,
         leading: IconButton(

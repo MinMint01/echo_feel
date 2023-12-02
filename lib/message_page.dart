@@ -26,14 +26,17 @@ class MessagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+      ),
+      backgroundColor: Colors.black,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Transmitted Message: $message',
-              style: const TextStyle(fontSize: 20, color: Colors.black),
+              style: const TextStyle(fontSize: 20, color: Colors.white),
             ),
             ElevatedButton(
               onPressed: () {
@@ -44,6 +47,9 @@ class MessagePage extends StatelessWidget {
                   ),
                 );
               },
+              style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.black,
+                  backgroundColor: const Color(0xFF98EECC)),
               child: const Text('Show Message'),
             ),
           ],
