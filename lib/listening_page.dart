@@ -1,4 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
+import 'message_page.dart';
 
 class ListeningPage extends StatefulWidget {
   const ListeningPage({Key? key}) : super(key: key);
@@ -13,6 +16,9 @@ class _ListeningPageState extends State<ListeningPage>
   late AnimationController _controller;
   late Animation<double> _animation;
   final TextEditingController _audioController = TextEditingController();
+  final stt.SpeechToText _speech = stt.SpeechToText();
+  bool _isListening = false;
+  String _text = '';
 
   @override
   void initState() {
@@ -24,6 +30,9 @@ class _ListeningPageState extends State<ListeningPage>
     )..repeat(reverse: true);
 
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
+
+    // Start listening when the page is loaded
+    _startListening();
   }
 
   @override
@@ -33,14 +42,43 @@ class _ListeningPageState extends State<ListeningPage>
     super.dispose();
   }
 
-  void _stopAudio() {
-    // Add any necessary logic to stop the audio playback
-    // For example, you can use a package like audioplayers
-    // and call stop method on the player instance.
-    // audioPlayer.stop();
+  Future<void> _startListening() async {
+    if (await _speech.initialize()) {
+      setState(() {
+        _isListening = true;
+      });
+      _speech.listen(
+        onResult: (result) {
+          setState(() {
+            _text = result.recognizedWords;
+          });
+          if (result.finalResult) {
+            // Do not stop listening here, continue listening in the background
+            // _stopListening();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MessagePage(
+                  message: _text,
+                  image: null,
+                ),
+              ),
+            );
+          }
+        },
+      );
+    } else {
+      if (kDebugMode) {
+        print('Speech recognition not available');
+      }
+    }
+  }
 
-    // Navigate to the home page
-    Navigator.of(context).pop();
+  void _stopListening() {
+    _speech.stop();
+    setState(() {
+      _isListening = false;
+    });
   }
 
   @override
@@ -76,23 +114,9 @@ class _ListeningPageState extends State<ListeningPage>
               },
             ),
             const SizedBox(height: 20),
-            // Textbox for speaking audio
-            Container(
-              width: 200,
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: TextField(
-                controller: _audioController,
-                style: const TextStyle(color: Colors.white),
-              ),
-            ),
-            const SizedBox(height: 20),
             // STOP button
             ElevatedButton(
-              onPressed: _stopAudio,
+              onPressed: _isListening ? _stopListening : null,
               style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
                   backgroundColor: const Color(0xFF98EECC)),
@@ -105,6 +129,7 @@ class _ListeningPageState extends State<ListeningPage>
   }
 }
 
+// Define the Dot class
 class Dot extends StatelessWidget {
   final double animationValue;
 

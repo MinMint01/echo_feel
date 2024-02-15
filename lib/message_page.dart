@@ -38,20 +38,6 @@ class MessagePage extends StatelessWidget {
               'Transmitted Message: $message',
               style: const TextStyle(fontSize: 20, color: Colors.white),
             ),
-            ElevatedButton(
-              onPressed: () {
-                // Show a snackbar with the message
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Message: $message'),
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor: const Color(0xFF98EECC)),
-              child: const Text('Show Message'),
-            ),
           ],
         ),
       ),
