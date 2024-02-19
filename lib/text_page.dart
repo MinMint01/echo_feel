@@ -41,15 +41,19 @@ class _TextPageState extends State<TextPage> {
                 });
               },
               style: const TextStyle(color: Colors.white),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Enter your text here...',
-                hintStyle: TextStyle(color: Colors.grey),
-                enabledBorder: UnderlineInputBorder(
+                hintStyle: const TextStyle(color: Colors.grey),
+                enabledBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
                 ),
-                focusedBorder: UnderlineInputBorder(
+                focusedBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
                 ),
+                contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20, vertical: 15), // Adjust content padding
+                fillColor: Colors.grey[900], // Set background color
+                filled: true, // Enable background color
               ),
             ),
             const SizedBox(height: 20),
