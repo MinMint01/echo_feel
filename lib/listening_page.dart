@@ -7,6 +7,7 @@ class ListeningPage extends StatefulWidget {
   const ListeningPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ListeningPageState createState() => _ListeningPageState();
 }
 
@@ -117,8 +118,8 @@ class _ListeningPageState extends State<ListeningPage>
             ElevatedButton(
               onPressed: _isListening ? _stopListening : null,
               style: ElevatedButton.styleFrom(
-                  onPrimary: Colors.black,
-                  primary: const Color(0xFF98EECC)),
+                  foregroundColor: Colors.black,
+                  backgroundColor: const Color(0xFF98EECC)),
               child: const Text('STOP'),
             ),
           ],
