@@ -12,7 +12,7 @@ class ImagePage extends StatelessWidget {
   Future<void> _captureImage(BuildContext context) async {
     try {
       final XFile? image =
-          await ImagePicker().pickImage(source: ImageSource.camera);
+      await ImagePicker().pickImage(source: ImageSource.camera);
 
       if (image == null) return; // User canceled the image capture
 
