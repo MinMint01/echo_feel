@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'message_page.dart'; // Import the message page
 
 class TextPage extends StatefulWidget {
-  const TextPage({Key? key}) : super(key: key);
+  const TextPage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -63,8 +63,7 @@ class _TextPageState extends State<TextPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        MessagePage(message: _text, image: Null),
+                    builder: (context) => MessagePage(message: _text),
                   ),
                 );
               },

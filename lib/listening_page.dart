@@ -4,7 +4,7 @@ import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'message_page.dart';
 
 class ListeningPage extends StatefulWidget {
-  const ListeningPage({Key? key}) : super(key: key);
+  const ListeningPage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -58,10 +58,7 @@ class _ListeningPageState extends State<ListeningPage>
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => MessagePage(
-                  message: _text,
-                  image: null,
-                ),
+                builder: (context) => MessagePage(message: _text),
               ),
             );
           }
@@ -133,7 +130,7 @@ class _ListeningPageState extends State<ListeningPage>
 class Dot extends StatelessWidget {
   final double animationValue;
 
-  const Dot({Key? key, required this.animationValue}) : super(key: key);
+  const Dot({super.key, required this.animationValue});
 
   @override
   Widget build(BuildContext context) {

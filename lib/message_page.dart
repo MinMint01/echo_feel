@@ -10,10 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MessagePage(
-        message: '',
-        image: null,
-      ),
+      home: MessagePage(message: ''),
     );
   }
 }
@@ -21,7 +18,7 @@ class MyApp extends StatelessWidget {
 class MessagePage extends StatelessWidget {
   final String message;
 
-  const MessagePage({super.key, required this.message, required image});
+  const MessagePage({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
