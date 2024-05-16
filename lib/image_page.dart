@@ -56,7 +56,7 @@ class _ImagePageState extends State<ImagePage> {
     });
 
     var request =
-        http.MultipartRequest('POST', Uri.parse("http://192.168.1.4:5000/"));
+        http.MultipartRequest('POST', Uri.parse("http://10.10.162.191:5000/"));
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 
     var response = await request.send();
