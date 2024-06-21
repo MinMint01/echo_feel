@@ -42,7 +42,6 @@ dependencies:
   image: ^4.1.7
   http: ^1.2.1
   path_provider: ^2.0.0
-  flutter_bluetooth_serial: ^0.3.2
 
 dev_dependencies:
   flutter_test:
